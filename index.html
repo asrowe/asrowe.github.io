@@ -9,30 +9,7 @@
     
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     
-    <script>
-        var stage;
-        var circle;
-        createjs.Ticker.addEventListener("tick", handleTick);
-        
-        function handleTick() {
-            //Circle will move 10 units to the right.
-            circle.x += 10;
-            //Will cause the circle to wrap back
-            if (circle.x > stage.canvas.width) { circle.x = 0; }
-            stage.update();
-        }
-        
-        function init() {
-            stage = new createjs.Stage("demoCanvas");
-            
-            circle = new createjs.Shape();
-            circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-            circle.x = 100;
-            circle.y = 100;
-            stage.addChild(circle);
-            stage.update();
-        }
-    </script>
+    <script src="nature.js"></script>
     
 </head>
 
