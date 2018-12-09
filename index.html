@@ -10,7 +10,10 @@
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
     
     <script>
+        var stage;
+        var circle;
         createjs.Ticker.addEventListener("tick", handleTick);
+        
         function handleTick() {
             //Circle will move 10 units to the right.
             circle.x += 10;
@@ -20,9 +23,9 @@
         }
         
         function init() {
-            var stage = new createjs.Stage("demoCanvas");
+            stage = new createjs.Stage("demoCanvas");
             
-            var circle = new createjs.Shape();
+            circle = new createjs.Shape();
             circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
             circle.x = 100;
             circle.y = 100;
