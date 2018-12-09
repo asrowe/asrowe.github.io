@@ -43,7 +43,7 @@ function init() {
 	world = defineWorld();
 	
 	stage = new createjs.Stage("demoCanvas");
-	buildWorld()
+	buildWorld(world,stage)
 	stage.update();
 	
 	createjs.Ticker.addEventListener("tick", updateWorld);
