@@ -46,6 +46,6 @@ function init() {
 	buildWorld(world,stage)
 	stage.update();
 	
-	createjs.Ticker.addEventListener("tick", updateWorld);
+	//createjs.Ticker.addEventListener("tick", updateWorld);
     
 }
