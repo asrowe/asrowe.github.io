@@ -1,7 +1,30 @@
 var stage;
-var circle;
+var world;
 
-function handleTick() {
+function defineWorld(){
+	_world = [];
+	
+	var ball = {name:"ball",
+				shape:"circle",
+				x:100,
+				y:100,
+				dx:10,
+				dy:0};
+	
+	_world.push(ball);
+	return _world;
+}
+
+function buildWorld (w, s){
+	Console.log("Building World...")
+	for(int i=0; i< w.length; i++){
+		Console.log(w[i].name);
+	}
+}
+
+
+
+function updateWorld() {
 	//Circle will move 10 units to the right.
 	circle.x += 10;
 	
@@ -12,13 +35,12 @@ function handleTick() {
 }
         
 function init() {
+	world = defineWorld();
+	
 	stage = new createjs.Stage("demoCanvas");
-	createjs.Ticker.addEventListener("tick", handleTick);
-            
-    circle = new createjs.Shape();
-    circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-    circle.x = 100;
-    circle.y = 100;
-    stage.addChild(circle);
-    stage.update();
+	buildWorld()
+	stage.update();
+	
+	createjs.Ticker.addEventListener("tick", updateWorld);
+    
 }
