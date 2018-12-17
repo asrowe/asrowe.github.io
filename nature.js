@@ -18,7 +18,7 @@ function defineWorld(){
 function buildWorld (){
 	console.log("Building World...")
 	for(let i=0; i< world.length; i++){
-		console.log(w[i].name);
+		console.log(world[i].name);
 		var circle = new createjs.Shape();
     		circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
 		circle.x = world[i].x;
