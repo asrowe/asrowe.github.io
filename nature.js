@@ -31,7 +31,7 @@ function buildWorld (){
 
 
 function updateWorld(event) {
-	for(let i=0; i<w.length; i++){
+	for(let i=0; i<world.length; i++){
 		world[i].x += world[i].dx;
 		world[i].y += world[i].dy;
 		if (world[i].x > stage.canvas.width) { world[i].x = 0; };
