@@ -15,37 +15,38 @@ function defineWorld(){
 	return _world;
 }
 
-function buildWorld (w, s){
+function buildWorld (){
 	console.log("Building World...")
-	for(let i=0; i< w.length; i++){
+	for(let i=0; i< world.length; i++){
 		console.log(w[i].name);
 		var circle = new createjs.Shape();
     		circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-		circle.x = w[i].x;
-		circle.y = w[i].y;
-		s.addChild(circle);
+		circle.x = world[i].x;
+		circle.y = world[i].y;
+		stage.addChild(circle);
 	}
-	s.update();
+	stage.update();
 }
 
 
 
-function updateWorld(w,s) {
+function updateWorld(event) {
 	for(let i=0; i<w.length; i++){
-		w[i].x += w[i].dx;
-		w[i].y += w[i].dy;
-		if (w[i].x > s.canvas.width) { w[i].x = 0; };
+		world[i].x += world[i].dx;
+		world[i].y += world[i].dy;
+		if (world[i].x > stage.canvas.width) { world[i].x = 0; };
 	}
 	
-	s.update();
+	stage.update();
 }
         
 function init() {
 	world = defineWorld();
-	
 	stage = new createjs.Stage("demoCanvas");
-	buildWorld(world,stage)
 	
-	createjs.Ticker.addEventListener("tick", updateWorld(world, stage));
+	buildWorld()
+	
+	createjs.Ticker.on("tick", updateWorld);
+	createjs.Ticker.setFPS(30);
     
 }
