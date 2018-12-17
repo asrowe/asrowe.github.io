@@ -32,8 +32,8 @@ function buildWorld (w, s){
 
 function updateWorld(w,s) {
 	for(let i=0; i<w.length; i++){
-		ob = w[i].x += w[i].dx;
-		ob = w[i].y += w[i].dy;
+		w[i].x += w[i].dx;
+		w[i].y += w[i].dy;
 		if (w[i].x > s.canvas.width) { w[i].x = 0; };
 	}
 	
