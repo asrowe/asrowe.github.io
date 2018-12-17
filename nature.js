@@ -31,13 +31,6 @@ function buildWorld (w, s){
 
 
 function updateWorld(w,s) {
-	//Circle will move 10 units to the right.
-	circle.x += 10;
-	
-	//Will cause the circle to wrap back
-	if (circle.x > stage.canvas.width) { circle.x = 0; }
-	
-	
 	for(let i=0; i<w.length; i++){
 		ob = w[i].x += w[i].dx;
 		ob = w[i].y += w[i].dy;
