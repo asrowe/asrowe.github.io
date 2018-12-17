@@ -25,18 +25,26 @@ function buildWorld (w, s){
 		circle.y = w[i].y;
 		s.addChild(circle);
 	}
+	s.update();
 }
 
 
 
-function updateWorld() {
+function updateWorld(w,s) {
 	//Circle will move 10 units to the right.
 	circle.x += 10;
 	
 	//Will cause the circle to wrap back
 	if (circle.x > stage.canvas.width) { circle.x = 0; }
 	
-	stage.update();
+	
+	for(let i=0; i<w.length; i++){
+		ob = w[i].x += w[i].dx;
+		ob = w[i].y += w[i].dy;
+		if (w[i].x > s.canvas.width) { w[i].x = 0; };
+	}
+	
+	s.update();
 }
         
 function init() {
@@ -44,8 +52,7 @@ function init() {
 	
 	stage = new createjs.Stage("demoCanvas");
 	buildWorld(world,stage)
-	stage.update();
 	
-	//createjs.Ticker.addEventListener("tick", updateWorld);
+	createjs.Ticker.addEventListener("tick", updateWorld(world, stage));
     
 }
